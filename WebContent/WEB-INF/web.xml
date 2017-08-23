@@ -13,29 +13,41 @@
     <session-timeout>30</session-timeout>
   </session-config>
   <servlet>
-    <servlet-name>Inscription</servlet-name>
-    <servlet-class>com.jck.servlets.Inscription</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Inscription</servlet-name>
-    <url-pattern>/inscription</url-pattern>
-  </servlet-mapping>
-  <servlet>
     <servlet-name>Connexion</servlet-name>
     <servlet-class>com.jck.servlets.Connexion</servlet-class>
   </servlet>
-  <servlet-mapping>
-    <servlet-name>Connexion</servlet-name>
-    <url-pattern>/connexion</url-pattern>
-  </servlet-mapping>
+  <servlet>
+    <servlet-name>Inscription</servlet-name>
+    <servlet-class>com.jck.servlets.Inscription</servlet-class>
+  </servlet>
   <servlet>
     <servlet-name>Deconnexion</servlet-name>
     <servlet-class>com.jck.servlets.Deconnexion</servlet-class>
   </servlet>
   <servlet-mapping>
+    <servlet-name>Connexion</servlet-name>
+    <url-pattern>/connexion</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Inscription</servlet-name>
+    <url-pattern>/inscription</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
     <servlet-name>Deconnexion</servlet-name>
     <url-pattern>/deconnexion</url-pattern>
   </servlet-mapping>
+  
+  
+  <filter>
+  	<filter-name>RestrictionFilter</filter-name>
+  	<filter-class>com.jck.filters.RestrictionFilter</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>RestrictionFilter</filter-name>
+  	<url-pattern>/restreint/*</url-pattern>
+  </filter-mapping>
+  
+  
   <jsp-config>
     <jsp-property-group>
       <url-pattern>*.jsp</url-pattern>
