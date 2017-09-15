@@ -26,6 +26,9 @@
 				<h2>Se connecter</h2>
 			</div>
 			<form method="post" action="<c:url value="/connexion" />">
+				<c:if test="${empty sessionScope.sessionUtilisateur && !empty requestScope.intervalleConnexions }">
+					<p class="info">(Vous ne vous etes pas connecté(e) depuis ce navigateur depuis ${requestScope.intervalleConnexions})</p>
+				</c:if>
 				<label for="email">Adresse email</label>
 				<br/>
 				<input type="email" id="email" name="email" value="<c:out value="${utilisateur.email }"/>">
@@ -37,6 +40,9 @@
 				<input type="password" id="motdepasse" name="motdepasse" value="">
 				<br/>
 				<span class="erreur">${form.erreurs['motdepasse']}</span>
+				<br/>
+				<label for="memoire"> Se souvenir de moi</label>
+				<input type="checkbox" id="meoire" name="memoire">
 				<br/>
 				<button type="submit" >Connexion</button>
 				<br/>
